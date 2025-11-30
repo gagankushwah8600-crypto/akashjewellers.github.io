@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Custom Order — AJ Jewellers</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">AJ AKASH JEWELLERS <small>रिश्ता विश्वास का…</small></div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="collections.html">Collections</a>
+    <a href="custom-order.html" class="active">Custom Order</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="contact.html">Contact & Visit</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="section-title"><h2>Custom Jewellery Order</h2></div>
+
+  <div style="display:grid;grid-template-columns:1fr 360px;gap:24px;align-items:start">
+    <div>
+      <p style="color:#333">Share your idea & details. We’ll contact you with design sketches and pricing.</p>
+
+      <form id="customForm" onsubmit="submitCustom(event)" style="margin-top:12px;display:grid;gap:10px">
+        <input name="name" placeholder="Your name" required style="padding:12px;border-radius:8px;border:1px solid #eee">
+        <input name="phone" placeholder="Phone (e.g. +91...)" required style="padding:12px;border-radius:8px;border:1px solid #eee">
+        <input name="email" placeholder="Email (optional)" style="padding:12px;border-radius:8px;border:1px solid #eee">
+        <input name="budget" placeholder="Approx Budget (₹)" style="padding:12px;border-radius:8px;border:1px solid #eee">
+        <textarea name="details" placeholder="Describe design, stones, reference links..." rows="6" style="padding:12px;border-radius:8px;border:1px solid #eee"></textarea>
+        <div style="display:flex;gap:10px">
+          <button class="btn primary" type="submit">Send via WhatsApp</button>
+          <button type="button" class="btn outline" onclick="location.href='contact.html'">Visit Us</button>
+        </div>
+      </form>
+    </div>
+
+    <aside style="background:#fff;padding:16px;border-radius:12px;box-shadow:var(--card-shadow)">
+      <h3 style="font-family:'Playfair Display',serif;color:var(--gold)">How it works</h3>
+      <ol style="margin-top:8px;color:#444;line-height:1.6">
+        <li>Share your idea and contact details.</li>
+        <li>Receive design sketches and price estimate.</li>
+        <li>Approve final design and make payment.</li>
+        <li>Get delivery & after-sales service.</li>
+      </ol>
+      <div style="margin-top:12px">
+        <button class="btn outline" onclick="location.href='contact.html'">Visit Store</button>
+      </div>
+    </aside>
+  </div>
+</main>
+
+<footer class="footer">© 2025 AJ Jewellers • 400, Narwal Chouraha, Sanwer Road, Indore</footer>
+
+<a class="whatsapp-fab" href="https://wa.me/919301740450" target="_blank">💬</a>
+
+<script>
+function submitCustom(e){
+  e.preventDefault();
+  const f = e.target;
+  const data = {
+    name: f.name.value,
+    phone: f.phone.value,
+    email: f.email.value,
+    budget: f.budget.value,
+    details: f.details.value
+  };
+  const msg = `Hello AJ Jewellers, I want a custom design.0AName: ${data.name}0APhone: ${data.phone}0AEmail: ${data.email}%0ABudget: ${data.budget}%0ADetails: ${data.details}`;
+  const url = `https://wa.me/919301740450?text=${encodeURIComponent(msg)}`;
+  window.open(url,'_blank');
+}
+</script>
+
+</body>
+</html>

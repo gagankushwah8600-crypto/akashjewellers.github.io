@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>AJ Jewellers — Home</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">AJ AKASH JEWELLERS <small>रिश्ता विश्वास का…</small></div>
+  <nav class="nav">
+    <a href="index.html" class="active">Home</a>
+    <a href="about.html">About</a>
+    <a href="collections.html">Collections</a>
+    <a href="custom-order.html">Custom Order</a>
+    <a href="catalogue.html">Catalogue</a>
+    <a href="contact.html">Contact & Visit</a>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="slides" aria-hidden="true">
+    <div class="slide" style="background-image:url('https://i.ibb.co/FkRkK2Fm/Whats-App-Image-2025-11-30-at-15-47-43-4b30fa16.jpg')"></div>
+    <div class="slide" style="background-image:url('https://i.ibb.co/LDHVyxqw/Whats-App-Image-2025-11-30-at-15-47-43-138fd478.jpg')"></div>
+    <div class="slide" style="background-image:url('https://i.ibb.co/Y4QsZmpt/Whats-App-Image-2025-11-30-at-16-28-53-9db51fa9.jpg')"></div>
+    <div class="slide" style="background-image:url('https://i.ibb.co/35P56bnm/Whats-App-Image-2025-11-30-at-16-28-54-0d4b06d9.jpg')"></div>
+  </div>
+
+  <div class="hero-inner">
+    <h1>Elegance Crafted in Gold</h1>
+    <p>Traditional craftsmanship — modern finish. Explore our complete catalogue.</p>
+    <a class="cta-btn" href="catalogue.html">View Full Catalogue</a>
+  </div>
+</section>
+
+<main class="container">
+  <div class="section-title"><h2>Featured</h2></div>
+  <div id="featuredGrid" class="grid"></div>
+</main>
+
+<footer class="footer">© 2025 AJ AKASH JEWELLERS • 400, Narwal Chouraha, Sanwer Road, Indore • Phone: +91 9301740450</footer>
+
+<!-- shared modal -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="box" role="dialog" aria-modal="true">
+    <img src="" alt="product">
+    <div class="right">
+      <h3></h3>
+      <div class="price" style="font-size:18px;font-weight:800;color:var(--gold-2);margin-bottom:8px;"></div>
+      <p></p>
+      <div style="margin-top:14px">
+        <button class="btn outline" onclick="closeModal()">Close</button>
+        <button class="btn primary order-now">Order via WhatsApp</button>
+      </div>
+    </div>
+    <div class="close" onclick="closeModal()">✕</div>
+  </div>
+</div>
+
+<a class="whatsapp-fab" href="https://wa.me/919301740450" target="_blank" title="Chat on WhatsApp">💬</a>
+
+<script src="scripts.js"></script>
+<script>
+  // small featured render on home (first 3 products)
+  function renderHomeFeatured(){
+    const grid = document.getElementById('featuredGrid');
+    if(!grid) return;
+    const featured = window.products ? products.slice(0,3) : []; // products defined in scripts.js
+    grid.innerHTML = featured.map(p => `
+      <div class="card">
+        <div class="frame"><img src="${p.img}" alt="${p.name}" loading="lazy"></div>
+        <div class="info"><div class="meta"><div class="name">${p.name}</div><div class="cat">${p.category}</div></div><div class="price">${p.price}</div></div>
+        <div class="actions"><button class="btn outline" onclick="openQuick(${p.id})">Quick View</button><button class="btn primary" onclick="orderWhatsapp(${p.id})">Order</button></div>
+      </div>
+    `).join('');
+  }
+  document.addEventListener('DOMContentLoaded', ()=>{ renderHomeFeatured(); });
+</script>
+</body>
+</html>
+

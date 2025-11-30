@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Catalogue — AJ AKASH JEWELLERS</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="header">
+  <div class="logo">AJ AKASH JEWELLERS <small>रिश्ता विश्वास का…</small></div>
+  <nav class="nav">
+    <a href="index.html">Home</a>
+    <a href="about.html">About</a>
+    <a href="collections.html">Collections</a>
+    <a href="custom-order.html">Custom Order</a>
+    <a href="catalogue.html" class="active">Catalogue</a>
+    <a href="contact.html">Contact & Visit</a>
+  </nav>
+</header>
+
+<main class="container">
+  <div class="section-title"><h2>Complete Catalogue</h2></div>
+
+  <div style="display:flex;gap:12px;flex-wrap:wrap;margin-bottom:18px;align-items:center">
+    <input id="searchBox" placeholder="Search product name or category..." style="flex:1;padding:10px 12px;border-radius:8px;border:1px solid #eee">
+    <select id="categoryFilter" style="padding:10px;border-radius:8px;border:1px solid #eee"><option value="">All Categories</option></select>
+    <button class="btn outline" onclick="applyFilter()">Apply</button>
+    <button class="btn primary" onclick="resetFilter()">Reset</button>
+  </div>
+
+  <div id="catalogGrid" class="grid"></div>
+</main>
+
+<footer class="footer">© 2025 AJ AKASH JEWELLERS • 400, Narwal Chouraha, Sanwer Road, Indore • Phone: +91 9301740450</footer>
+
+<!-- modal -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="box" role="dialog" aria-modal="true">
+    <img src="" alt="product image">
+    <div class="right">
+      <h3></h3>
+      <div class="price" style="font-size:18px;font-weight:800;color:var(--gold-2);margin-bottom:8px;"></div>
+      <p></p>
+      <div style="margin-top:14px">
+        <button class="btn outline" onclick="closeModal()">Close</button>
+        <button class="btn primary order-now">Order via WhatsApp</button>
+      </div>
+    </div>
+    <div class="close" onclick="closeModal()">✕</div>
+  </div>
+</div>
+
+<a class="whatsapp-fab" href="https://wa.me/919301740450" target="_blank">💬</a>
+
+<script src="scripts.js"></script>
+</body>
+</html>
